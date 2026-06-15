@@ -1,0 +1,33 @@
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        encoded = ''
+        for word in strs:
+            encoded+= str(int(len(word)))+ '|' + word
+
+        return encoded
+
+    def decode(self, s: str) -> List[str]:
+        decoded = []
+        i = 0
+        
+        #3|car4|barn
+        while i < len(s):
+            j = i
+            while s[j]!= '|':
+                j+=1
+            length = int(s[i:j])
+            
+            i = j + 1
+            decoded.append(s[i:i+length])
+            i +=length
+        return decoded
+
+                
+                
+
+
+
+
+
+            
